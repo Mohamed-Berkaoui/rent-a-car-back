@@ -23,7 +23,7 @@ const Userschema = new mongoose.Schema(
     password: { type: String, required: true },
     phone: { type: String, required: true, unique: true },
     avatar: { type: String, default: "/avatar.png" },
-    isBunned: { type: Boolean, default: false },
+    isBanned: { type: Boolean, default: false },
     isVerified: { type: Boolean, default: true },
   },
   { timestamps: true, versionKey: false }
