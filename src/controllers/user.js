@@ -6,8 +6,6 @@ const bcrypt = require("bcrypt");
 const { validationResult } = require("express-validator");
 async function register(req, res, next) {
   const result = validationResult(req);
-  console.log("🚀 ~ register ~ result:", result);
-
   if (!result.isEmpty()) {
     return res.json(new AppFail("verify your cridentions"));
   }
@@ -53,7 +51,6 @@ async function update(req, res, next) {
     return res.json(new AppFail("failed"));
   }
 
-  const user =
     req.user.role == "admin"
       ? {
           email: req.body.email,
@@ -78,8 +75,8 @@ async function updatePassword(req, res, next) {
   if (!bcrypt.compareSync(req.body.oldPassword, user.password)) {
     return res.json(new AppFail("failed"));
   }
-  user.password=bcrypt.hashSync(req.body.newPassword,10)
-  await user.save()
+  user.password = bcrypt.hashSync(req.body.newPassword, 10);
+  await user.save();
   res.json(new AppSuccess(user));
 }
 async function getusers(req, res, next) {
@@ -91,4 +88,4 @@ async function getuser(req, res, next) {
   return res.json(new AppSuccess(getallusers));
 }
 
-module.exports = { register, login, getusers, update, getuser,updatePassword };
+module.exports = { register, login, getusers, update, getuser, updatePassword };
