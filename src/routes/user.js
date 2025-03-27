@@ -6,10 +6,10 @@ const userRouter = require("express").Router();
 userRouter.post("/register", registerValidator(), register);
 userRouter.post("/login", login);
 
-userRouter.put("/update/:id",verifytoken('admin','user','agency'), update);
-userRouter.put("/update/password",verifytoken('admin','user','agency'), updatePassword);
+userRouter.put("/update/:id",verifytoken('admin','user','agent'), update);
+userRouter.put("/update/password",verifytoken('admin','user','agent'), updatePassword);
 userRouter.get("/getallusers",verifytoken('admin'), getusers);
-userRouter.get("/:id",verifytoken('admin','user','agency'), getuser);
+userRouter.get("/:id",verifytoken('admin','user','agent'), getuser);
 
 
 

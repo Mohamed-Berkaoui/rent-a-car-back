@@ -4,6 +4,8 @@ const generatetoken = require("../lib/generateToken");
 const User = require("../models/User");
 const bcrypt = require("bcrypt");
 const { validationResult } = require("express-validator");
+
+
 async function register(req, res, next) {
   const result = validationResult(req);
   if (!result.isEmpty()) {
@@ -43,9 +45,7 @@ async function login(req, res, next) {
   res.json(new AppSuccess(existUser));
 }
 
-/**
- * @todo protect route
- */
+
 async function update(req, res, next) {
   if (!req.body) {
     return res.json(new AppFail("failed"));

@@ -7,7 +7,8 @@ const ReservationSchema = new mongoose.Schema(
     startDate: { type: Date, required: true },
     endDate: { type: Date, required: true },
     coupon: { type: mongoose.Types.ObjectId, ref: "coupon", default: null },
-    status: { type: String, enum: ["canceled", "completed", "pending"] },
+    status: { type: String, enum: ["canceled", "completed", "pending","started"] ,default:"pending"},
+    
   },
   { timestamps: true, versionKey: false }
 );

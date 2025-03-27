@@ -7,6 +7,7 @@ const userRouter = require("./routes/user");
 const server = express();
 const cookieparser=require('cookie-parser');
 const carRouter = require("./routes/car");
+const ReseravationRouter = require("./routes/reservation");
 
 
 server.use(express.json())
@@ -15,6 +16,8 @@ server.use(express.static(__dirname + "/public"));
 
 server.use("/api/user", userRouter); 
 server.use("/api/car", carRouter); 
+server.use("/api/reservation", ReseravationRouter); 
+
 
 
 server.all("*", (req, res, next) => {
@@ -22,7 +25,6 @@ server.all("*", (req, res, next) => {
 });
 
 server.use((err, req, res, next) => {
-  console.log("first");
   res.json(new AppError(err.message));
 });
 
