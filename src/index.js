@@ -8,8 +8,9 @@ const server = express();
 const cookieparser=require('cookie-parser');
 const carRouter = require("./routes/car");
 const ReseravationRouter = require("./routes/reservation");
-
-
+const couponRouter = require("./routes/coupon");
+const cors=require('cors')
+server.use(cors())
 server.use(express.json())
 server.use(cookieparser())
 server.use(express.static(__dirname + "/public"));
@@ -17,6 +18,8 @@ server.use(express.static(__dirname + "/public"));
 server.use("/api/user", userRouter); 
 server.use("/api/car", carRouter); 
 server.use("/api/reservation", ReseravationRouter); 
+server.use("/api/coupon", couponRouter); 
+
 
 
 

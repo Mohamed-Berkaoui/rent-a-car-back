@@ -7,5 +7,5 @@ const CouponSechema=new mongoose.Schema({
 },{timestamps:true,versionKey:false})
 
 const Coupon=mongoose.model('coupon',CouponSechema)
-module.export=Coupon
+module.exports=Coupon
 

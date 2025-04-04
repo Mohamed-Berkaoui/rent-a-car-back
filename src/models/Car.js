@@ -11,7 +11,7 @@ const carSchema=new mongoose.Schema({
     tankVolume:{type :Number},
     consumption:{type:Number,required:true},
     gear:{type:String,required:true,enum:["manual","automatic"]},
-    status:{type:String,required:true,enum:["available","rented","maintenance"]},
+    status:{type:String,required:true,enum:["available","rented","maintenance"] ,default:"available"},
     color:{type:String},
     image:{type:[String]},
     date:{type:Date,required:true},
